@@ -1,22 +1,10 @@
-name: Spring Tester CI
-on:
-  push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
+name: Test Workflow
+
+on: [push]
+
 jobs:
-  build:
-    runs-on: mac-latest
+  hello-job:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout source
-        uses: actions/checkout@v3
-      - name: Set up JDK 24
-        uses: actions/setup-java@v3
-        with:
-          java-version: '24'
-          distribution: 'temurin'
-      - name: Build eith Maven
-        run: mvn clean install
-      - name: Run Tests
-        run: mvn test 
-  
+      - name: Say Hello
+        run: echo "Hello from GitHub Actions!"
